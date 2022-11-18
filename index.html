@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>The Planner</title>
+</head>
+
+<body>
+    <header>
+        <h1>THE PLANNER</h1>
+    </header>
+    
+    <div class="planText">
+        <h2>Schedule Your Event: </h2>
+        <p>Book important events by submitting it to the calendar.
+        </p>
+    </div>
+
+    <form class="formContainer" action="url">
+
+        <div class="EventTitle">
+        <textarea name="text" id="titleEvent" cols="30" rows="2" style="resize: none;" placeholder="Event Title"></textarea>
+        </div>
+
+      <div class="description">
+
+        <textarea name="text" id="describeEvent" cols="40" rows="10" style="resize: none;" placeholder="Describe Your Event"></textarea>
+
+        </div>
+
+      <div class="datePicker">
+        <label for="eventDate">Select Your Date</label>
+        <input type="date" id="eventDate" name="eventDate">
+      </div>
+ 
+      <div class="submitButton">
+      <button >Submit</button>
+    </div>
+
+    </form>
+</body>
+</html>
