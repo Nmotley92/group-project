@@ -1,45 +1,480 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/style.css">
-    <title>The Planner</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="./style.css">
+  <title>Calendar</title>
 </head>
 
-<body>
-    <header>
-        <h1>THE PLANNER</h1>
-    </header>
+<body class="bg-slate-50 dark:bg-slate-700 p-4 md:p-6 lg:p-8 min-h-screen grid gap-4 md:gap-6 lg:gap-8 
+text-slate-600 dark:text-slate-100">
+  <header class="text-center grid p-4">
+    <h1 class="text-3xl sm:text-5xl font-bold bg-clip-text text-transparent 
+  bg-gradient-to-br pb-4 md:pb-6 from-blue-500 to-violet-700 dark:from-blue-400">November 2022</h1>
     
-    <div class="planText">
-        <h2>Schedule Your Event: </h2>
-        <p>Book important events by submitting it to the calendar.
-        </p>
-    </div>
-
-    <form class="formContainer" action="url">
-
-        <div class="EventTitle">
-        <textarea name="text" id="titleEvent" cols="30" rows="2" style="resize: none;" placeholder="Event Title"></textarea>
+  </header>
+  <main class="w-full mx-auto">  
+    <section class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
+    <div class="p-3 shadow bg-red-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">Sunday</div>
+    <div class="p-3 shadow bg-red-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">Monday</div>
+    <div class="p-3 shadow bg-red-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">Tuesday</div>
+    <div class="p-3 shadow bg-red-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">Whensday</div>
+    <div class="p-3 shadow bg-red-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">Thursday</div>
+    <div class="p-3 shadow bg-red-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">Firday</div>
+    <div class="p-3 shadow bg-red-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">Saturday</div>
+  </section>    
+    <section class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7" id="events-container">
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>30</p>
         </div>
-
-      <div class="description">
-
-        <textarea name="text" id="describeEvent" cols="40" rows="10" style="resize: none;" placeholder="Describe Your Event"></textarea>
-
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
         </div>
-
-      <div class="datePicker">
-        <label for="eventDate">Select Your Date</label>
-        <input type="date" id="eventDate" name="eventDate">
-      </div>
- 
-      <div class="submitButton">
-      <button >Submit</button>
-    </div>
-
-    </form>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>31</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>1</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>2</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>3</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>4</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>5</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>6</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>7</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>8</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>9</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>10</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>11</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>12</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>13</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>14</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>15</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>16</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>17</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>18</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>19</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>20</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>21</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>22</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>23</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>24</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>25</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>26</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>27</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>28</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>29</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>29</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>30</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+      <article class="bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg">
+        <div class="p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg">
+          <p>31</p>
+        </div>
+        <div class="p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6">
+          <div class="grid gap-1">
+            <h2 class="text-black-400 font-bold">Sample event Title</h2>
+            <p class="text-black-400">Time: 12:00PM</p>
+            <p class="text-slate-400">Sample details for event. Sample details for event.  Sample details for event.  Sample details for event.Sample details for event.Sample details for event.Sample details for event.Sample details for event.</p>
+          </div>
+          <button class="bg-indigo-500 rounded-md px-4 py-2 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ">Add Event</button>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <script src="./script.js"></script>
 </body>
+
 </html>
