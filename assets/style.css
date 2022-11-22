@@ -1,6 +1,12 @@
-@layer utilities {
+/* @layer utilities {
     .content-auto {
       content-visibility: auto;
     }
-  }
+  } */
+textarea {
+  background-color: rgb(41, 35, 35);
+}
 
+button:hover {
+  background-color: rgb(103, 20, 133);
+}
