@@ -1,62 +1,86 @@
-var todayDate = moment().format('dddd, MMM Do YYYY');
-$("#currentDay").html(todayDate);
+// selects Header and event container element
+var eventContainer = $('#events-container');
+var mainHeader = $('#main-header');
 
-$(document).ready(function () {
-    // saveBtn click listener 
-    $("#saveBtn").on("click", function () {
-        // Get nearby values of the description in JQuery
-        var text = $(this).siblings("#description").val();
-        var time = $(this).parent().attr("id");
+// Finds the amount of days based off of current month
+function getDaysInMonth(year, month) {
+    return new Date(year, month, 0).getDate();
+}
 
-        // Save text in local storage
-        localStorage.setItem(time, text);
-    })
+// adds current date to the header
+var date = new Date()
+mainHeader.text(date.toDateString());
+// current year and month as variables
+var currentYear = date.getFullYear();
+var currentMonth = date.getMonth() + 1; // 👈️ months are 0-based
 
-$('textarea').each(function(){
-    $(this).css('background-color', "black");
-$(this).val("hello world")
-})
-
-
-
-    function timeTracker() {
-        //get current number of hours.
-        var timeNow = moment().hour();
-
-        // loop over time blocks
-        $(".time-block").each(function () {
-            var blockTime = parseInt($(this).attr("id").split("hour")[1]);
-
-            // To check the time and add the classes for background indicators
-            if (blockTime < timeNow) {
-                $(this).removeClass("future");
-                $(this).removeClass("present");
-                $(this).addClass("past");
-            }
-            else if (blockTime === timeNow) {
-                $(this).removeClass("past");
-                $(this).removeClass("future");
-                $(this).addClass("present");
-            }
-            else {
-                $(this).removeClass("present");
-                $(this).removeClass("past");
-                $(this).addClass("future");
-
-            }
-        })
+// 👇️ Current Month
+var daysInCurrentMonth = getDaysInMonth(currentYear, currentMonth);
+// 👇️ first day of the month
+var firstDayOfMonth = new Date(`${currentYear}-${currentMonth}-1`).getDay()
+// 👇️ what weekday the month starts on
+var weekDay = firstDayOfMonth;
+// Run create calendar function
+createCalendar();
+function createCalendar (){
+for (let i = 1; i <= daysInCurrentMonth; i++) {
+    var dayOfWeek;
+    // checks what day should be added 
+    if(weekDay==0){dayOfWeek="Sunday";}
+    if(weekDay==1){dayOfWeek="Monday";}
+    if(weekDay==2){dayOfWeek="Tuesday";}
+    if(weekDay==3){dayOfWeek="Wednesday";}
+    if(weekDay==4){dayOfWeek="Thursday";}
+    if(weekDay==5){dayOfWeek="Friday";}
+    if(weekDay==6){dayOfWeek="Saturday";}
+    // creates elemenst for the date cards
+    var articleEL = $('<article>');
+    var cardHeader = $('<div>');
+    var headerText = $('<p>');
+    var cardText = $('<div>');
+    var card = $('<div>');
+    var textArea = $('<textarea>');
+    var saveButton = $('<button>');
+    // adds classes, ids, and appends created elements
+    articleEL.addClass("bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800 rounded-lg");
+    eventContainer.append(articleEL);
+    cardHeader.addClass("p-3 shadow bg-indigo-500 text-indigo-50 uppercase grid place-items-center rounded-t-lg");
+    articleEL.append(cardHeader);
+    headerText.text(dayOfWeek + " "+ i);
+    cardHeader.append(headerText);
+    cardText.addClass("p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6");
+    cardText.attr("id", "date-"+i);
+    articleEL.append(cardText);
+    card.addClass("grid gap-1");
+    cardText.append(card);
+    textArea.attr("id", "date-"+i);
+    textArea.addClass("bg-white dark:bg-slate-800 shadow-xl shadow-slate-200 dark:shadow-slate-800")
+    card.append(textArea);
+    saveButton.text("Save");
+    saveButton.addClass('btn bg-indigo-500 my-1 rounded-md px-4 py-1 text-indigo-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ring-offset-0 ');
+    card.append(saveButton);
+    // keeps trak of the days
+    if(weekDay>=6){
+        weekDay=0;
+    }else{
+        weekDay++;
     }
-
-    $("#day1 #description").val(localStorage.getItem("hour8"));
-   /* $("#hour9 .description").val(localStorage.getItem("hour9"));
-    $("#hour10 .description").val(localStorage.getItem("hour10"));
-    $("#hour11 .description").val(localStorage.getItem("hour11"));
-    $("#hour12 .description").val(localStorage.getItem("hour12"));
-    $("#hour13 .description").val(localStorage.getItem("hour13"));
-    $("#hour14 .description").val(localStorage.getItem("hour14"));
-    $("#hour15 .description").val(localStorage.getItem("hour15"));
-    $("#hour16 .description").val(localStorage.getItem("hour16"));
-    $("#hour17 .description").val(localStorage.getItem("hour17")); */
-
-    timeTracker();
-})
+}
+}
+// saves on save button click
+var saveButtonsEl = $('.btn')
+saveButtonsEl.click(function(){
+    var id = $(this).prev().attr('id');
+    console.log(id);
+    var value = $(this).prev().val();
+    localStorage.setItem(id, value);
+    
+  })
+//   onload it loads current local storage
+  window.onload = function() {        
+    $('textarea').each(function(){    
+       var id = $(this).attr('id');
+       var text2 = localStorage.getItem(id);
+       if (text2 !== null) $(this).val(text2);
+    }); 
+   }
