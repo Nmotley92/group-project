@@ -78,7 +78,7 @@ function createCalendar() {
         headerText.text(dayOfWeek + " " + i);
         cardHeader.append(headerText);
         cardText.addClass("p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6");
-        cardText.attr('id', "key-"+i);
+        cardText.attr('id', "key-" + i);
         addEventButton.addClass("x w-full bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring");
         addEventButton.attr("id", "date-" + i);
         addEventButton.text("Add Event");
@@ -90,56 +90,62 @@ function createCalendar() {
         } else {
             weekDay++;
         }
-        
+
     }
 }
 
-
+// lisstens for an add event click
 var clickable = $('.x');
 clickable.click(function () {
-    key = $(this).attr('id');
+    // use target to teel where to add new event button
     target = $(this).parent();
+    // makes the modal pop up 
     modal2El.css('display', 'block');
-    newKEy=$(this).parent().attr('id'); 
+    // creates key to save in local storage
+    newKEy = $(this).parent().attr('id');
+    // clears out the event form
     eventName.val('');
     eventTime.val('');
     eventDetails.val('');
-    
+
 });
 
+// listens for a save button click
 saveForm.on('click', () => {
+    // takes iput from form and creates an object
     formObject.eventTitle = eventName.val();
     formObject.time = eventTime.val();
     formObject.details = eventDetails.val();
-    localStorage.setItem(key, JSON.stringify(formObject));
+    // makes form disapear once user clicks the save button
     modal2El.css('display', 'none');
-    
-  var pELTitle = $('<button>');
+
+    // creates the new button
+    var pELTitle = $('<button>');
     pELTitle.addClass('y w-full bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring ');
     pELTitle.text(eventName.val());
-    pELTitle.attr("id",newKEy);
+    pELTitle.attr("id", newKEy);
+    // saves object to local storage
     localStorage.setItem(newKEy, JSON.stringify(formObject));
-    
+    // adds the button to the page
     target.append(pELTitle);
+    // clears form on save click
     eventName.val('');
     eventTime.val('');
     eventDetails.val('');
-var buttutu= $('.y');
+    // class selecter for the new buttons 
+    var buttutu = $('.y');
+    // click listener for new buttons
+    buttutu.click((event) => {
+        var newForm = JSON.parse(localStorage.getItem(event.target.id));
 
-buttutu.click((event)=>{
-    var newForm =JSON.parse(localStorage.getItem(event.target.id));
-           
         eventName.val(newForm.eventTitle);
         eventTime.val(newForm.time);
         eventDetails.val(newForm.details);
         modal2El.css('display', 'block');
+    })
 })
-})
-    
 
-
-
-
+// closes the modal on close button click
 closeForm.on('click', () => {
     modal2El.css('display', 'none');
 
@@ -156,6 +162,7 @@ var x = $('.close');
 function createLocalEvents(cityInput) {
     var apiKey = "MzA0NzM4MTd8MTY2ODc0MTg3OC41MTA0NzE4";
     var city = cityInput;
+    // fetches events on search by city
     fetch(`https://api.seatgeek.com/2/events?venue.city=${city}&client_id=${apiKey}`, {
 
         })
@@ -173,6 +180,7 @@ function createLocalEvents(cityInput) {
             }
 
             for (let i = 0; i < data.events.length; i++) {
+                // creats a clickable image
                 var containerImgEl = $('<div>');
                 var imageEL = $('<img>');
                 var aEL = $('<a>');
@@ -181,13 +189,14 @@ function createLocalEvents(cityInput) {
                 var fifthDiveEl = $('<div>');
                 var h5El = $('<h5>');
                 var pel = $('<p>');
+                // pulls and assigns data from fetch
                 var imgSrc = data.events[i].performers[0].image;
                 var link = data.events[i].url;
                 var title = data.events[i].title + " " + data.events[0].type;
                 var time = new Date(data.events[i].datetime_local).toLocaleString();
 
 
-
+                // adds classes for the image container
                 containerImgEl.addClass("relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-lg");
                 containerImgEl.attr("style", 'background-position: 50%;');
                 containerImgEl.attr("data-mdb-ripple", 'true');
@@ -199,12 +208,13 @@ function createLocalEvents(cityInput) {
                 fifthDiveEl.addClass("text-white m-6");
                 h5El.addClass('font-bold text-lg mb-3');
                 pel.addClass('font-bold text-lg mb-3');
-
+                // adds src and href
                 imageEL.attr("src", imgSrc);
                 aEL.attr("href", link);
+                //  puts the text for title and time
                 h5El.text(title);
                 pel.text(time);
-
+                // adds all the above to page
                 localEventCont.append(containerImgEl);
                 containerImgEl.append(imageEL);
                 containerImgEl.append(aEL);
@@ -219,14 +229,16 @@ function createLocalEvents(cityInput) {
 
 
 }
+// searches for city 
 searchEl.on('click', () => {
     var cityInput = inputEl.val();
     inputEl.val("");
-
+    // clecks to see if input is blank
     if (!cityInput) {
         modal.css('display', 'block');
         return;
     }
+    
     createLocalEvents(cityInput);
 });
 // When the user clicks on <span> (x), close the modal
