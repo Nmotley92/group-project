@@ -27,6 +27,8 @@ mainHeader.text(date.toDateString());
 // current year and month as variables
 var currentYear = date.getFullYear();
 var currentMonth = date.getMonth() + 1; // 👈️ months are 0-based
+var currentDay = date.getDate();
+
 
 // 👇️ Current Month
 var daysInCurrentMonth = getDaysInMonth(currentYear, currentMonth);
@@ -77,7 +79,7 @@ function createCalendar() {
         articleEL.append(cardHeader);
         headerText.text(dayOfWeek + " " + i);
         cardHeader.append(headerText);
-        cardText.addClass("p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6");
+        cardText.addClass("date p-4 md:p-6 lg:p-8 grid gap-4 md:gap-6");
         cardText.attr('id', "key-" + i);
         addEventButton.addClass("x w-full bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring");
         addEventButton.attr("id", "date-" + i);
@@ -107,8 +109,9 @@ clickable.click(function () {
     eventName.val('');
     eventTime.val('');
     eventDetails.val('');
-
+   
 });
+
 
 // listens for a save button click
 saveForm.on('click', () => {
@@ -143,6 +146,7 @@ saveForm.on('click', () => {
         eventDetails.val(newForm.details);
         modal2El.css('display', 'block');
     })
+
 })
 
 // closes the modal on close button click
@@ -245,3 +249,62 @@ searchEl.on('click', () => {
 x.on('click', () => {
     modal.css('display', 'none');
 });
+
+window.onload = function () {
+    $('.date').each(function () {
+        var id = $(this).attr('id');
+        var text2 = JSON.parse(localStorage.getItem(id));
+        if (text2 !== null) {
+            var eventButton = $('<button>');
+            eventButton.addClass('y w-full bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring');
+            eventButton.attr('id', id);
+            eventButton.text(text2.eventTitle);
+            $(this).append(eventButton);
+
+        }
+    });
+}
+
+
+var holidayButton = $('#holidays');
+var holidayRemove = $('#holidays2');
+holidayRemove.hide();
+holidayButton.on('click', ()=>{
+    apiKey="e4ed267f8e2a8e059e5a491b2d1b399f961485e0"
+    holidayButton.hide();
+    holidayRemove.show();
+    fetch(`https://calendarific.com/api/v2/holidays?&api_key=${apiKey}&country=US&year=${currentYear}&month=${currentMonth}`, {
+        
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            for (let i=0; i<data.response.holidays.length; i++){
+                var holidayBtn= $('<button>');
+                holidayBtn.addClass('z w-full bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring');
+                holidayBtn.attr('id', "holi-"+(i+1));
+                holidayBtn.text(data.response.holidays[i].name);
+                formObject.eventTitle= data.response.holidays[i].name;
+                formObject.details= data.response.holidays[i].description;
+                localStorage.setItem("holi-"+(i+1), JSON.stringify(formObject));
+                if (i+1 == data.response.holidays.length){
+                    $('#key-'+(data.response.holidays[i].date.datetime.day)).append(holidayBtn);
+                    return;
+                }
+                if(data.response.holidays[i].name!==data.response.holidays[i+1].name){
+                    $('#key-'+(data.response.holidays[i].date.datetime.day)).append(holidayBtn);
+                }
+                $('.z').click((event)=>{
+                    var newForm = JSON.parse(localStorage.getItem(event.target.id));
+                    eventName.val(newForm.eventTitle);
+                    eventTime.val(newForm.time);
+                    eventDetails.val(newForm.details);
+                    modal2El.css('display', 'block');
+                })
+            }
+        })
+
+})
+ 

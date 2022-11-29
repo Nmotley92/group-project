@@ -11,40 +11,42 @@
 </head>
 <div id="myModal" class="modal">
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p id="modal-txt">No Events found sorry</p>
-      </div>
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close justify-center">&times;</span>
+    <p id="modal-txt">No Events found sorry</p>
+  </div>
 
+</div>
+
+<div id="form-modal" class="modal2 ">
+
+  <!-- Form modal content -->
+  <div class="modal-content flex flex-col justify-center items-center">
+    <div class="m-2 p-2">
+
+      <p>Event <input type="text" name="Event" size="50" id="event-name"></p>
     </div>
+    <div class="m-2 p-2">
+      <p>Time <input type="text" name="Event" size="50" id="event-time"></p>
+    </div>
+    <div>
+      <p>Event Details</p>
+      <textarea name="details" id="event-details" cols="70" rows="10"></textarea>
+    </div>
+    <div class="grid grid-cols-2 gap-1 justify-center">
+      <button id="save"
+        class="w-full bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none outline">
+        Save
+      </button><button id="close"
+        class="w-full float-right bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none outline">
+        Close
+      </button>
+    </div>
+  </div>
+</div>
 
-    <div id="form-modal" class="modal2 ">
 
-      <!-- Modal content -->
-      <div class="modal-content flex flex-col justify-center items-center">
-        <div class="m-2 p-2">
-        
-        <p>Event <input type="text" name="Event" size="50" id="event-name"></p>
-        </div>
-        <div class="m-2 p-2">
-        <p>Time  <input type="text" name="Event" size="50" id="event-time"></p>
-        </div>
-        <div>
-          <p>Event Details</p>
-          <textarea name="details" id="event-details" cols="70" rows="10"></textarea>
-        </div>
-        <div class="grid grid-cols-2 gap-1 justify-center">
-          <button id="save" class="w-full bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none outline">
-          Save
-          </button ><button  id= "close" class="w-full float-right bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none outline">
-          Close
-          </button>
-        </div>
-      </div>
-      </div>
-      
-      
 
 <body class="bg-slate-50 dark:bg-slate-700 p-4 md:p-6 lg:p-8 min-h-screen grid gap-4 md:gap-6 lg:gap-8 
 text-slate-600 dark:text-slate-100">
@@ -55,21 +57,27 @@ text-slate-600 dark:text-slate-100">
   </header>
   <main class="w-full mx-auto">
     <!-- The Modal -->
-    
+
 
     <section class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5" id="events-container">
 
     </section>
     <section class="mb-32 text-gray-800">
+      <section>
+        <button  id="holidays" class="w-25% text-center bg-grey-500 rounded-md m-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none outline">Add Holidays</button>
+      </section>
+      <section>
+        <button  id="holidays2" class="w-25% text-center bg-grey-500 rounded-md m-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none outline">Remove Holidays</button>
+      </section>
       <div class="flex flex-col justfy-center items-center">
         <h2 class="text-3xl font-bold text-center">Local Events</h2>
         <p class="text-xl text-center">Click to buy tickets!</p>
 
         <input id="input" class="w-1/2" type="text" placeholder="Search for your city">
         <button id="search-button"
-          class="w-1/2 bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring">Search</button>
+          class="w-1/2 bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none outline">Search</button>
       </div>
-
+      
       <div id="local-events" class="grid md:grid-cols-2 gap-4 lg:grid-cols-4 gap-6">
 
       </div>
