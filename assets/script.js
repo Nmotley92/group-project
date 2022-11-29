@@ -316,6 +316,9 @@ holidayButton.on('click', ()=>{
                     modal2El.css('display', 'block');
                     
                 })
+                holidayRemove.on('click',()=>{
+                    $('.z').remove();
+                })
             }
         })
 
