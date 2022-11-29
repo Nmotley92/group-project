@@ -101,6 +101,7 @@ var clickable = $('.x');
 clickable.click(function () {
     // use target to teel where to add new event button
     target = $(this).parent();
+    
     // makes the modal pop up 
     modal2El.css('display', 'block');
     // creates key to save in local storage
@@ -260,6 +261,17 @@ window.onload = function () {
             eventButton.attr('id', id);
             eventButton.text(text2.eventTitle);
             $(this).append(eventButton);
+            // class selecter for the new buttons 
+             var buttutu = $('.y');
+        // click listener for new buttons
+        buttutu.click((event) => {
+        var newForm = JSON.parse(localStorage.getItem(event.target.id));
+
+        eventName.val(newForm.eventTitle);
+        eventTime.val(newForm.time);
+        eventDetails.val(newForm.details);
+        modal2El.css('display', 'block');
+    })
 
         }
     });
@@ -302,6 +314,7 @@ holidayButton.on('click', ()=>{
                     eventTime.val(newForm.time);
                     eventDetails.val(newForm.details);
                     modal2El.css('display', 'block');
+                    
                 })
             }
         })
