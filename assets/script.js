@@ -318,6 +318,8 @@ holidayButton.on('click', ()=>{
                 })
                 holidayRemove.on('click',()=>{
                     $('.z').remove();
+                    holidayRemove.hide();
+                    holidayButton.show();
                 })
             }
         })
