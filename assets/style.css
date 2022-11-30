@@ -50,6 +50,7 @@
     padding: 8px; 
 }
 
+/* nav links styling */
 .linkstyle {
   background-color: rgb(21, 30, 54);
   border: solid 1px;
@@ -91,6 +92,7 @@
   margin-top: 0%;
 }
 
+/* animation text */
 .animate-charcter
 {
    text-transform: capitalize;
@@ -128,6 +130,7 @@
   }
 }
 
+/* animation text */
 .animate-charcter2
 {
    text-transform: capitalize;
