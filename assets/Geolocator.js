@@ -91,6 +91,3 @@ const errorCallback = (error) => {
 // call for user to be prompted for their location
 navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 
-// get an ID for watch id (this updates the users location if they move)
-const watchId = navigator.geolocation.watchPosition(successCallback,errorCallback)
-
