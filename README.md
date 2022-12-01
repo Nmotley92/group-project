@@ -4,6 +4,14 @@
 
 The Daily Planner is a tool that gives the user the opportunity to search for local events in any city within the US and a book events on the calendar.
 
+## Technologies Used
+
+HTML -
+CSS -
+JAVASCRIPT -
+JQUERY -
+TAILWIND 
+
 ## User Story
 
 ```
@@ -31,4 +39,8 @@ THEN The events from that city appears
 
 ![screencapture-127-0-0-1-5500-index-html-2022-11-29-20_34_18](https://user-images.githubusercontent.com/114509238/204694276-8aaf17fe-744c-47a7-8486-90ab8349ced0.png)
 
+## Deployment Link
+
+
+[The Daily Planner](https://nmotley92.github.io/group-project/)
 
