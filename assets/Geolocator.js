@@ -16,7 +16,7 @@ function createLocalEventsGeo(lat, long) {
    var long = position.coords.longitude
    var lat = position.coords.latitude
 
-    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${apiKey}`, {
+    fetch(`https://api.seatgeek.com/2/events?lat=${lat}&lon=${long}&client_id=${apiKey}&per_page=25`, {
 
         })
         .then(function (response) {
