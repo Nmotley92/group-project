@@ -17,7 +17,7 @@ var eventDetails = $('#event-details');
 var key;
 var target;
 var newKEy;
-
+var containerImgEl;
 
 // Finds the amount of days based off of current month
 function getDaysInMonth(year, month) {
@@ -195,9 +195,8 @@ function createLocalEvents(cityInput) {
             return response.json();
         })
         .then(function (data) {
-            if (containerImgEl) {
-                containerImgEl.remove();
-            }
+                
+            
             if (data.events.length == 0) {
                 modal.css('display', 'block')
                 return;
@@ -208,11 +207,11 @@ function createLocalEvents(cityInput) {
                 eventTitle: "",
                 time: "",
                 details: ""
-            };
+            }
 
             for (let i = 0; i < data.events.length; i++) {
                 // creats a clickable image
-                var containerImgEl = $('<div>');
+                containerImgEl = $('<div>');
                 var imageEL = $('<img>');
                 // var aEL = $('<a>');
                 var thirdDivEl = $('<div>');
@@ -275,6 +274,7 @@ function createLocalEvents(cityInput) {
                 formObject.eventTitle = title;
                 formObject.time = time3;
                 formObject.date= "#key-"+time2;
+                formObject.key = title;
                 localStorage.setItem(title, JSON.stringify( formObject));
                 if(month>currentMonth){
                     copyButtonEl.hide();
@@ -287,14 +287,14 @@ function createLocalEvents(cityInput) {
                 formArray.push(formObject);
                 localStorage.setItem("allButtons", JSON.stringify(formArray));
                 var eventButton = $('<button>');
-                eventButton.addClass('y w-full bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring');
+                eventButton.addClass('x w-full bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none ring');
                 eventButton.attr('id', event.target.id);
                 eventButton.text(event.target.value);
                 eventButton.attr('value', event.target.value);
                 $("#" +event.target.id).append(eventButton);
                 // formArray.push(formObject);
                 
-                var buttutu = $('.y');
+                var buttutu = $('.x');
                 // click listener for new buttons
                 buttutu.click((event) => {
                     var newForm = JSON.parse(localStorage.getItem(event.target.value));
@@ -321,6 +321,9 @@ searchEl.on('click', () => {
         modal.css('display', 'block');
         return;
     }
+    $('#local-events').children().remove();
+    
+
 
     createLocalEvents(cityInput);
 });
@@ -358,7 +361,7 @@ window.onload = function () {
             eventDetails.val(newForm.details);
             modal2El.css('display', 'block');
         })
-
+      
     }
 }
 
