@@ -18,31 +18,36 @@
   </div>
 
 </div>
-
-<div id="form-modal" class="modal2 ">
-
-  <!-- Form modal content -->
-  <div class="modal-content flex flex-col justify-center items-center">
-    <div class="m-2 p-2">
-
-      <p>Event <input type="text" name="Event" size="50" id="event-name"></p>
-    </div>
-    <div class="m-2 p-2">
-      <p>Time <input type="text" name="Event" size="50" id="event-time"></p>
-    </div>
-    <div>
-      <p>Event Details</p>
-      <textarea name="details" id="event-details" cols="70" rows="10"></textarea>
-    </div>
-    <div id="buttons-form" class="grid grid-cols-2 gap-1">
-      <button id="save"
-        class="w-full  float-left bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none outline">
-        Save
-      </button><button id="close"
-        class="w-full float-right bg-grey-500 rounded-md mb-1 px-4 py-1 text-black-50 shadow-black-200 dark:shadow-none text-center font-bold hover:showdow-none outline">
-        Close
-      </button>
-    </div>
+<div id="form-modal" class="modal2">
+  <div class="w-full max-w-xs">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="Title">
+          Title
+        </label>
+        <input id="event-name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Event Title">
+      </div>
+      <div class="mb-26">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="Time">
+          Time
+        </label>
+        <input id="event-time" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="12:00PM">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="Time">
+          Description
+        </label>
+        <textarea id="event-details" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"  type="text" placeholder="Event details"></textarea>
+      </div>
+      <div class="flex items-center justify-between">
+        <button id="save" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          Save
+        </button>
+        <button id="close" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+          Close
+        </button>
+      </div>
+    </form>
   </div>
 </div>
 
