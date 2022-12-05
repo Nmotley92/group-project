@@ -414,7 +414,6 @@ holidayButton.on('click', function clickAdd () {
                     $('.z').remove();
                     holidayRemove.hide();
                     holidayButton.show();
-                    localStorage.setItem('clicked', 'false');
                 })
             }
             
