@@ -414,9 +414,11 @@ holidayButton.on('click', function clickAdd () {
                     $('.z').remove();
                     holidayRemove.hide();
                     holidayButton.show();
-                    localStorage.setItem('clicked', 'false');
                 })
             }
             
         })
 })
+
+var clearCalendar = $('#clear-calendar');
+clearCalendar.on('click', ()=> $('.y').remove())

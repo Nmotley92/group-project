@@ -128,7 +128,7 @@ function createLocalEventsGeo(lat, long) {
                 // click listener for new buttons
                 buttutu.click((event) => {
                     var newForm = JSON.parse(localStorage.getItem(event.target.value));
-                    saveForm.hide();
+                    // saveForm.hide();
                     eventName.val(newForm.eventTitle);
                     eventTime.val(newForm.time);
                     eventDetails.val(newForm.details);
