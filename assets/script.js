@@ -421,4 +421,7 @@ holidayButton.on('click', function clickAdd () {
 })
 
 var clearCalendar = $('#clear-calendar');
-clearCalendar.on('click', ()=> $('.y').remove())
+clearCalendar.on('click', ()=> {
+    $('.y').remove();
+    localStorage.clear();
+})
